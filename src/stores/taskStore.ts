@@ -22,7 +22,7 @@ export const useTaskStore = defineStore('tasks', () => {
   // State
   const tasks = ref<Task[]>(loadFromStorage())
   const filterStatus = ref<TaskFilterOption>('all')
-  const sortBy = ref<TaskSortOption>('createAt')
+  const sortBy = ref<TaskSortOption>('createdAt')
   const searchQuery = ref('')
 
   // Computed: derived task lists
@@ -59,7 +59,7 @@ export const useTaskStore = defineStore('tasks', () => {
         return a.title.localeCompare(b.title)
       }
       // Default: sort by createAt descending
-      return new Date(b.createAt).getTime() - new Date(a.createAt).getTime()
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     })
   })
 
@@ -69,7 +69,7 @@ export const useTaskStore = defineStore('tasks', () => {
       id: nanoid(),
       ...formData,
       status: 'active',
-      createAt: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
       completedAt: null,
     }
     tasks.value.unshift(newTask)

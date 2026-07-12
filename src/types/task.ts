@@ -7,7 +7,7 @@ export interface Task {
     description: string
     priority: TaskPriority
     status: TaskStatus
-    createAt: string
+    createdAt: string
     completedAt: string | null
     tags: string[]
 }
@@ -20,4 +20,4 @@ export interface TaskFormData {
 }
 
 export type TaskFilterOption = 'all' | TaskStatus
-export type TaskSortOption = 'createAt' | 'priority' | 'title'
+export type TaskSortOption = 'createdAt' | 'priority' | 'title'
